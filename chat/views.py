@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import ChatModel
 # Create your views here.
 
 def homepageview(request):
@@ -8,4 +8,7 @@ def homepageview(request):
 def roomview(request):
     room_no = request.POST['room_no']
     name = request.POST['name']
-    return render(request, "room.html", {'room_no': room_no, 'name':name})
+    messages = []
+    for eachobj in ChatModel.objects.filter(room_no = room_no):
+        messages.append(eachobj.message)
+    return render(request, "room.html", {'room_no': room_no, 'name':name, 'messages':messages})

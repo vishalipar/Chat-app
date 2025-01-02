@@ -22,9 +22,10 @@
     <div style='position:relative;height:100vh; width:100vw;' class="d-flex justify-content-center align-items-center">
         <h1 style="top:0;position:absolute;">Welcome to the room <span style="color: #0079E5;"> {{room_no}} </span></h1>
         <div id="messagescontainer" style="overflow-y:auto; width: 40vw; height:80vh;position: relative;" class="container">
-            {% comment %} <div id='lefttext'>Hello</div>
+            {% for message in messages %}
+            <div id='lefttext'>{{message}}</div>
             <br><br>
-            <div id='lefttext'>Hello how are you</div> {% endcomment %}
+            {% endfor %}
         </div>
         <div style="position:absolute; width:100vh; bottom:20px" class="d-flex justify-content-center">
             <input id="messageinputfield" class="form-control" style="text-align:center;width:40vh;" type="text" name="">
