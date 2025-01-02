@@ -45,6 +45,11 @@
         document.querySelector('#messageinputfield').value= '';
     }
     
+    document.querySelector('#messageinputfield').onkeyup = function(e){
+        if(e.keyCode == 13){
+            document.querySelector('#sendbutton').click();
+        }
+    }
     
     chatSocket.onmessage = function(e){
         const data = JSON.parse(e.data);
